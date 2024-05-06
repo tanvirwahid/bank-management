@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Http\Requests\Traits\FailedValidationHandlerTrait;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserCreationRequest extends FormRequest
+class LoginRequest extends FormRequest
 {
     use FailedValidationHandlerTrait;
 
@@ -25,10 +25,8 @@ class UserCreationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required',
-            'account_type' => 'required|in:Individual,Business',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|confirmed|min:6'
+            'email' => 'required|email',
+            'password' => 'required'
         ];
     }
 }
