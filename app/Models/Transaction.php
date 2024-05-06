@@ -26,7 +26,7 @@ class Transaction extends Model
         $query->where('transaction_type', 'deposit');
     }
 
-    public function scopeWidrawal(Builder $query)
+    public function scopeWithdrawal(Builder $query)
     {
         $query->where('transaction_type', 'withdrawal');
     }

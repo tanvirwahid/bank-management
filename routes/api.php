@@ -23,7 +23,9 @@ Route::group([
 ], function() {
     Route::get('/', [TransactionController::class, 'index']);
     Route::get('deposit', [TransactionController::class, 'getDeposits']);
+    Route::post('deposit', [TransactionController::class, 'deposit']);
     Route::get('withdrawal', [TransactionController::class, 'getWithdrawal']);
+    Route::post('withdrawal', [TransactionController::class, 'withdraw']);
 
     Route::post('logout', [AuthController::class, 'logout']);
 });
