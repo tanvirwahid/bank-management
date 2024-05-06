@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,10 @@ use App\Http\Controllers\Auth\AuthController;
 Route::group([
     'middleware' => 'auth:sanctum'
 ], function() {
+    Route::get('/', [TransactionController::class, 'index']);
+    Route::get('deposit', [TransactionController::class, 'getDeposits']);
+    Route::get('withdrawal', [TransactionController::class, 'getWithdrawal']);
+
     Route::post('logout', [AuthController::class, 'logout']);
 });
 
